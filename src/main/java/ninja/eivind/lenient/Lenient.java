@@ -6,4 +6,5 @@ package ninja.eivind.lenient;
  * @param <T> The type for which this {@link Comparable} is lenient
  */
 public interface Lenient<T> extends Comparable<T> {
+
 }

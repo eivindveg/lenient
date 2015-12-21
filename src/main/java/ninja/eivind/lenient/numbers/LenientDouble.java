@@ -57,4 +57,20 @@ public class LenientDouble extends LenientNumber<Double> {
 
         return value.compareTo(o.doubleValue());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Number that = (Number) o;
+
+        return compareTo(that) == 0 || value.equals(that.doubleValue());
+
+    }
+
+    @Override
+    public int hashCode() {
+        return value.hashCode();
+    }
 }

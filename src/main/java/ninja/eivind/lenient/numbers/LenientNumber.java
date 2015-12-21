@@ -7,4 +7,6 @@ import ninja.eivind.lenient.Lenient;
  * @param <T> The {@link Number} type for which this class is {@link Lenient}
  */
 public abstract class LenientNumber<T extends Number> extends Number implements Lenient<Number> {
+
+    public abstract boolean equals(Object other);
 }
