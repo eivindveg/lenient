@@ -19,7 +19,8 @@ public abstract class LenientNumber<T extends Number> extends Number implements 
     }
 
     public boolean lessThanOrEquals(Number other) {
-        return compareTo(other) <= 0;
+        int compare = compareTo(other);
+        return compare <= 0;
     }
 
     public boolean greaterThan(Number other) {
