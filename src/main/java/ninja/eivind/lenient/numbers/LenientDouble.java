@@ -10,12 +10,12 @@ public class LenientDouble extends LenientNumber<Double> {
         if (value == null) {
             throw new NullPointerException("Value cannot be null.");
         }
-        this.variance = variance;
+        setVariance(variance);
         this.value = value;
     }
 
     public LenientDouble(Double value) {
-        this(value, 0.5d);
+        this(value, value * 0.10d);
     }
 
     public double getVariance() {
@@ -24,7 +24,7 @@ public class LenientDouble extends LenientNumber<Double> {
     }
 
     public void setVariance(double variance) {
-        this.variance = variance;
+        this.variance = Math.abs(variance);
     }
 
     @Override
@@ -49,9 +49,9 @@ public class LenientDouble extends LenientNumber<Double> {
 
     @Override
     public int compareTo(Number o) {
-        double diff = value - o.doubleValue();
+        double diff = Math.abs(Math.abs(value) - Math.abs(o.doubleValue()));
 
-        if(Math.abs(diff) <= variance) {
+        if(diff <= variance) {
             return 0;
         }
 
