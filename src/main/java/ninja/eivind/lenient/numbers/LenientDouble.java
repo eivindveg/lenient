@@ -49,7 +49,7 @@ public class LenientDouble extends LenientNumber<Double> {
 
     @Override
     public int compareTo(Number o) {
-        double diff = Math.abs(Math.abs(value) - Math.abs(o.doubleValue()));
+        double diff = Math.abs(value - o.doubleValue());
 
         if(diff <= variance) {
             return 0;
