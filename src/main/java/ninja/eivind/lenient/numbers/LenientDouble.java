@@ -51,7 +51,7 @@ public class LenientDouble extends LenientNumber<Double> {
     public int compareTo(Number o) {
         double diff = value - o.doubleValue();
 
-        if(Math.abs(diff) < variance) {
+        if(Math.abs(diff) <= variance) {
             return 0;
         }
 
@@ -61,12 +61,18 @@ public class LenientDouble extends LenientNumber<Double> {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (o == null) return false;
+        if(!(o instanceof Number)) return false;
 
         Number that = (Number) o;
 
         return compareTo(that) == 0 || value.equals(that.doubleValue());
 
+    }
+
+    @Override
+    public String toString() {
+        return value.toString() + "(+/-)" + variance;
     }
 
     @Override
