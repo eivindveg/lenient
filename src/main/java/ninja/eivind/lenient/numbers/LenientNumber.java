@@ -8,5 +8,6 @@ import ninja.eivind.lenient.Lenient;
  */
 public abstract class LenientNumber<T extends Number> extends Number implements Lenient<Number> {
 
+    @Override
     public abstract boolean equals(Object other);
 }
