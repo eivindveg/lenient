@@ -71,6 +71,11 @@ public class LenientDouble extends LenientNumber<Double> {
     }
 
     @Override
+    public Double getValue() {
+        return value;
+    }
+
+    @Override
     public String toString() {
         return value.toString() + "(+/-)" + variance;
     }
